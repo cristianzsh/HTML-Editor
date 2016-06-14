@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Editor</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('.box').live("keyup", function() {
+				var targetp = $('#preview')[0].contentWindow.document;
+				targetp.open();
+				targetp.close();
+
+				$('body', targetp).append($('.html').val());
+				$('head', targetp).append('<style>' + $('.css').val() + '</style>');
+			})
+		});
+	</script>
+</head>
+<body>
+	<iframe src="https://ghbtns.com/github-btn.html?user=cristian-henrique&repo=HTML-Editor&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px" align="right"></iframe>
+	<iframe src="https://ghbtns.com/github-btn.html?user=cristian-henrique&repo=HTML-Editor&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px" align="right"></iframe> <br>
+	<center>
+		<h1>HTML Editor</h1>
+		<p>A real time HTML editor</p>
+		<textarea class="box html" placeholder="HTML code..."></textarea>
+		<textarea class="box css" placeholder="CSS code..."></textarea>
+		<iframe id="preview"></iframe>
+		<p>Developed by <a href="https://www.github.com/cristian-henrique/" target="_blank">Cristian Henrique</a></p>
+	</center>
+</body>
+</html>
